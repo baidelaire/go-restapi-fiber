@@ -1,4 +1,4 @@
-module github.com/tentangkode/go-restapi-fiber
+module github.com/baidelaire/go-restapi-fiber
 
 go 1.18
 

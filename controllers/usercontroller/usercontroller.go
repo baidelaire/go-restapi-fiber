@@ -3,7 +3,7 @@ package usercontroller
 import (
 	"net/http"
 
-	"github.com/tentangkode/go-restapi-fiber/models"
+	"github.com/baidelaire/go-restapi-fiber/models"
 	"gorm.io/gorm"
 
 	"github.com/gofiber/fiber/v2"
