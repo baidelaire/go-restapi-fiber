@@ -35,6 +35,25 @@ func Show(c *fiber.Ctx) error {
 	return c.JSON(book)
 }
 
+func ShowPuzzle(c *fiber.Ctx) error {
+
+	id := c.Params("id")
+	var puzzle models.Puzzle
+	if err := models.DB.First(&puzzle, id).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return c.Status(http.StatusNotFound).JSON(fiber.Map{
+				"message": "Data tidak ditemukan",
+			})
+		}
+
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Data tidak ditemukan",
+		})
+	}
+
+	return c.JSON(puzzle)
+}
+
 func Create(c *fiber.Ctx) error {
 
 	var book models.Book
